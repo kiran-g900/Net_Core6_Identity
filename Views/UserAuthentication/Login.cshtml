@@ -1,0 +1,47 @@
+﻿@model Dotnetsix_Identity.Models.DTO.LoginModel;
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    
+    <link rel="stylesheet" href="~/css/Login.css" media="screen" type="text/css" />
+
+</head>
+
+<body>
+
+    <div class="login-card">
+        <h1>Log-in</h1><br>
+        <form asp-action="Login" method="post">
+
+            <span class="text-danger" asp-validation-for="Username"></span>
+            <input type="text" asp-for="Username" placeholder="Username">
+            
+            <br />
+            <span class="text-danger" asp-validation-for="Password"></span>
+            <input type="password" asp-for="Password" placeholder="Password">            
+            <br />
+            @if (TempData["msg"] != null)
+            {
+                @TempData["msg"]
+            }
+
+            <br />
+            <button type="submit" class="login login-submit">Login</button>             
+            <br /><br />
+            <div class="login-help">
+                <a href="/UserAuthentication/Registration">Register</a> 
+            </div>
+        </form>
+    </div>
+    
+</body>
+
+</html>

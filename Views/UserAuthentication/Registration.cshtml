@@ -1,0 +1,57 @@
+﻿@model Dotnetsix_Identity.Models.DTO.RegistrationModel;
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Registration</title>
+    <link rel="stylesheet" href="~/css/Login.css" media="screen" type="text/css" />
+</head>
+<body>
+
+    <div class="login-card">
+        <h1>Registration</h1><br>
+        <form asp-action="Registration" method="post">
+            <span asp-validation-for="Name" class="text-danger"></span>
+            <input type="text" asp-for="Name" placeholder="Name">
+
+            <br />
+            <span class="text-danger" asp-validation-for="Username"></span>
+            <input type="text" asp-for="Username" placeholder="Username">
+
+             <br />
+            <span class="text-danger" asp-validation-for="Email"></span>
+            <input type="text" asp-for="Email" placeholder="Email">
+            
+            <br />
+            <span class="text-danger" asp-validation-for="Password"></span>
+            <input type="password" asp-for="Password" placeholder="Password">            
+
+            <br />
+            <span class="text-danger" asp-validation-for="PasswordConfirm"></span>
+            <input type="text" asp-for="PasswordConfirm" placeholder="Confirm Password">
+             
+
+            <br />
+            @if (TempData["msg"] != null)
+            {
+                @TempData["msg"]
+            }
+
+            <br />
+            <button type="submit" class="login login-submit">Signup</button>
+            <br /><br />
+            <div class="login-help">
+                <a href="/UserAuthentication/Login">Login</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Dotnetsix_Identity.props" />
+</Project>
